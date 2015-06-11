@@ -1,0 +1,1187 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.6.0 #4309 (Jul 28 2006)
+                              4 ; This file generated Sat May 02 15:12:58 2015
+                              5 ;--------------------------------------------------------
+                              6 	.module diskio
+                              7 	.optsdcc -mmcs51 --model-small
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _P5_7
+                             13 	.globl _P5_6
+                             14 	.globl _P5_5
+                             15 	.globl _P5_4
+                             16 	.globl _P5_3
+                             17 	.globl _P5_2
+                             18 	.globl _P5_1
+                             19 	.globl _P5_0
+                             20 	.globl _P4_7
+                             21 	.globl _P4_6
+                             22 	.globl _P4_5
+                             23 	.globl _P4_4
+                             24 	.globl _P4_3
+                             25 	.globl _P4_2
+                             26 	.globl _P4_1
+                             27 	.globl _P4_0
+                             28 	.globl _PX0L
+                             29 	.globl _PT0L
+                             30 	.globl _PX1L
+                             31 	.globl _PT1L
+                             32 	.globl _PLS
+                             33 	.globl _PT2L
+                             34 	.globl _PPCL
+                             35 	.globl _EC
+                             36 	.globl _CCF0
+                             37 	.globl _CCF1
+                             38 	.globl _CCF2
+                             39 	.globl _CCF3
+                             40 	.globl _CCF4
+                             41 	.globl _CR
+                             42 	.globl _CF
+                             43 	.globl _TF2
+                             44 	.globl _EXF2
+                             45 	.globl _RCLK
+                             46 	.globl _TCLK
+                             47 	.globl _EXEN2
+                             48 	.globl _TR2
+                             49 	.globl _C_T2
+                             50 	.globl _CP_RL2
+                             51 	.globl _T2CON_7
+                             52 	.globl _T2CON_6
+                             53 	.globl _T2CON_5
+                             54 	.globl _T2CON_4
+                             55 	.globl _T2CON_3
+                             56 	.globl _T2CON_2
+                             57 	.globl _T2CON_1
+                             58 	.globl _T2CON_0
+                             59 	.globl _PT2
+                             60 	.globl _ET2
+                             61 	.globl _CY
+                             62 	.globl _AC
+                             63 	.globl _F0
+                             64 	.globl _RS1
+                             65 	.globl _RS0
+                             66 	.globl _OV
+                             67 	.globl _F1
+                             68 	.globl _P
+                             69 	.globl _PS
+                             70 	.globl _PT1
+                             71 	.globl _PX1
+                             72 	.globl _PT0
+                             73 	.globl _PX0
+                             74 	.globl _RD
+                             75 	.globl _WR
+                             76 	.globl _T1
+                             77 	.globl _T0
+                             78 	.globl _INT1
+                             79 	.globl _INT0
+                             80 	.globl _TXD
+                             81 	.globl _RXD
+                             82 	.globl _P3_7
+                             83 	.globl _P3_6
+                             84 	.globl _P3_5
+                             85 	.globl _P3_4
+                             86 	.globl _P3_3
+                             87 	.globl _P3_2
+                             88 	.globl _P3_1
+                             89 	.globl _P3_0
+                             90 	.globl _EA
+                             91 	.globl _ES
+                             92 	.globl _ET1
+                             93 	.globl _EX1
+                             94 	.globl _ET0
+                             95 	.globl _EX0
+                             96 	.globl _P2_7
+                             97 	.globl _P2_6
+                             98 	.globl _P2_5
+                             99 	.globl _P2_4
+                            100 	.globl _P2_3
+                            101 	.globl _P2_2
+                            102 	.globl _P2_1
+                            103 	.globl _P2_0
+                            104 	.globl _SM0
+                            105 	.globl _SM1
+                            106 	.globl _SM2
+                            107 	.globl _REN
+                            108 	.globl _TB8
+                            109 	.globl _RB8
+                            110 	.globl _TI
+                            111 	.globl _RI
+                            112 	.globl _P1_7
+                            113 	.globl _P1_6
+                            114 	.globl _P1_5
+                            115 	.globl _P1_4
+                            116 	.globl _P1_3
+                            117 	.globl _P1_2
+                            118 	.globl _P1_1
+                            119 	.globl _P1_0
+                            120 	.globl _TF1
+                            121 	.globl _TR1
+                            122 	.globl _TF0
+                            123 	.globl _TR0
+                            124 	.globl _IE1
+                            125 	.globl _IT1
+                            126 	.globl _IE0
+                            127 	.globl _IT0
+                            128 	.globl _P0_7
+                            129 	.globl _P0_6
+                            130 	.globl _P0_5
+                            131 	.globl _P0_4
+                            132 	.globl _P0_3
+                            133 	.globl _P0_2
+                            134 	.globl _P0_1
+                            135 	.globl _P0_0
+                            136 	.globl _EECON
+                            137 	.globl _KBF
+                            138 	.globl _KBE
+                            139 	.globl _KBLS
+                            140 	.globl _BRL
+                            141 	.globl _BDRCON
+                            142 	.globl _T2MOD
+                            143 	.globl _SPDAT
+                            144 	.globl _SPSTA
+                            145 	.globl _SPCON
+                            146 	.globl _SADEN
+                            147 	.globl _SADDR
+                            148 	.globl _WDTPRG
+                            149 	.globl _WDTRST
+                            150 	.globl _P5
+                            151 	.globl _P4
+                            152 	.globl _IPH1
+                            153 	.globl _IPL1
+                            154 	.globl _IPH0
+                            155 	.globl _IPL0
+                            156 	.globl _IEN1
+                            157 	.globl _IEN0
+                            158 	.globl _CMOD
+                            159 	.globl _CL
+                            160 	.globl _CH
+                            161 	.globl _CCON
+                            162 	.globl _CCAPM4
+                            163 	.globl _CCAPM3
+                            164 	.globl _CCAPM2
+                            165 	.globl _CCAPM1
+                            166 	.globl _CCAPM0
+                            167 	.globl _CCAP4L
+                            168 	.globl _CCAP3L
+                            169 	.globl _CCAP2L
+                            170 	.globl _CCAP1L
+                            171 	.globl _CCAP0L
+                            172 	.globl _CCAP4H
+                            173 	.globl _CCAP3H
+                            174 	.globl _CCAP2H
+                            175 	.globl _CCAP1H
+                            176 	.globl _CCAP0H
+                            177 	.globl _CKCKON1
+                            178 	.globl _CKCKON0
+                            179 	.globl _CKRL
+                            180 	.globl _AUXR1
+                            181 	.globl _AUXR
+                            182 	.globl _TH2
+                            183 	.globl _TL2
+                            184 	.globl _RCAP2H
+                            185 	.globl _RCAP2L
+                            186 	.globl _T2CON
+                            187 	.globl _B
+                            188 	.globl _ACC
+                            189 	.globl _PSW
+                            190 	.globl _IP
+                            191 	.globl _P3
+                            192 	.globl _IE
+                            193 	.globl _P2
+                            194 	.globl _SBUF
+                            195 	.globl _SCON
+                            196 	.globl _P1
+                            197 	.globl _TH1
+                            198 	.globl _TH0
+                            199 	.globl _TL1
+                            200 	.globl _TL0
+                            201 	.globl _TMOD
+                            202 	.globl _TCON
+                            203 	.globl _PCON
+                            204 	.globl _DPH
+                            205 	.globl _DPL
+                            206 	.globl _SP
+                            207 	.globl _P0
+                            208 	.globl _xbuffer
+                            209 	.globl _SDCard
+                            210 	.globl _CardType
+                            211 	.globl _Stat
+                            212 	.globl _disk_initialize
+                            213 	.globl _disk_status
+                            214 	.globl _disk_read
+                            215 	.globl _disk_mp3_read
+                            216 	.globl _disk_txt_read
+                            217 	.globl _disk_write
+                            218 	.globl _disk_ioctl
+                            219 ;--------------------------------------------------------
+                            220 ; special function registers
+                            221 ;--------------------------------------------------------
+                            222 	.area RSEG    (DATA)
+                    0080    223 _P0	=	0x0080
+                    0081    224 _SP	=	0x0081
+                    0082    225 _DPL	=	0x0082
+                    0083    226 _DPH	=	0x0083
+                    0087    227 _PCON	=	0x0087
+                    0088    228 _TCON	=	0x0088
+                    0089    229 _TMOD	=	0x0089
+                    008A    230 _TL0	=	0x008a
+                    008B    231 _TL1	=	0x008b
+                    008C    232 _TH0	=	0x008c
+                    008D    233 _TH1	=	0x008d
+                    0090    234 _P1	=	0x0090
+                    0098    235 _SCON	=	0x0098
+                    0099    236 _SBUF	=	0x0099
+                    00A0    237 _P2	=	0x00a0
+                    00A8    238 _IE	=	0x00a8
+                    00B0    239 _P3	=	0x00b0
+                    00B8    240 _IP	=	0x00b8
+                    00D0    241 _PSW	=	0x00d0
+                    00E0    242 _ACC	=	0x00e0
+                    00F0    243 _B	=	0x00f0
+                    00C8    244 _T2CON	=	0x00c8
+                    00CA    245 _RCAP2L	=	0x00ca
+                    00CB    246 _RCAP2H	=	0x00cb
+                    00CC    247 _TL2	=	0x00cc
+                    00CD    248 _TH2	=	0x00cd
+                    008E    249 _AUXR	=	0x008e
+                    00A2    250 _AUXR1	=	0x00a2
+                    0097    251 _CKRL	=	0x0097
+                    008F    252 _CKCKON0	=	0x008f
+                    00AF    253 _CKCKON1	=	0x00af
+                    00FA    254 _CCAP0H	=	0x00fa
+                    00FB    255 _CCAP1H	=	0x00fb
+                    00FC    256 _CCAP2H	=	0x00fc
+                    00FD    257 _CCAP3H	=	0x00fd
+                    00FE    258 _CCAP4H	=	0x00fe
+                    00EA    259 _CCAP0L	=	0x00ea
+                    00EB    260 _CCAP1L	=	0x00eb
+                    00EC    261 _CCAP2L	=	0x00ec
+                    00ED    262 _CCAP3L	=	0x00ed
+                    00EE    263 _CCAP4L	=	0x00ee
+                    00DA    264 _CCAPM0	=	0x00da
+                    00DB    265 _CCAPM1	=	0x00db
+                    00DC    266 _CCAPM2	=	0x00dc
+                    00DD    267 _CCAPM3	=	0x00dd
+                    00DE    268 _CCAPM4	=	0x00de
+                    00D8    269 _CCON	=	0x00d8
+                    00F9    270 _CH	=	0x00f9
+                    00E9    271 _CL	=	0x00e9
+                    00D9    272 _CMOD	=	0x00d9
+                    00A8    273 _IEN0	=	0x00a8
+                    00B1    274 _IEN1	=	0x00b1
+                    00B8    275 _IPL0	=	0x00b8
+                    00B7    276 _IPH0	=	0x00b7
+                    00B2    277 _IPL1	=	0x00b2
+                    00B3    278 _IPH1	=	0x00b3
+                    00C0    279 _P4	=	0x00c0
+                    00D8    280 _P5	=	0x00d8
+                    00A6    281 _WDTRST	=	0x00a6
+                    00A7    282 _WDTPRG	=	0x00a7
+                    00A9    283 _SADDR	=	0x00a9
+                    00B9    284 _SADEN	=	0x00b9
+                    00C3    285 _SPCON	=	0x00c3
+                    00C4    286 _SPSTA	=	0x00c4
+                    00C5    287 _SPDAT	=	0x00c5
+                    00C9    288 _T2MOD	=	0x00c9
+                    009B    289 _BDRCON	=	0x009b
+                    009A    290 _BRL	=	0x009a
+                    009C    291 _KBLS	=	0x009c
+                    009D    292 _KBE	=	0x009d
+                    009E    293 _KBF	=	0x009e
+                    00D2    294 _EECON	=	0x00d2
+                            295 ;--------------------------------------------------------
+                            296 ; special function bits
+                            297 ;--------------------------------------------------------
+                            298 	.area RSEG    (DATA)
+                    0080    299 _P0_0	=	0x0080
+                    0081    300 _P0_1	=	0x0081
+                    0082    301 _P0_2	=	0x0082
+                    0083    302 _P0_3	=	0x0083
+                    0084    303 _P0_4	=	0x0084
+                    0085    304 _P0_5	=	0x0085
+                    0086    305 _P0_6	=	0x0086
+                    0087    306 _P0_7	=	0x0087
+                    0088    307 _IT0	=	0x0088
+                    0089    308 _IE0	=	0x0089
+                    008A    309 _IT1	=	0x008a
+                    008B    310 _IE1	=	0x008b
+                    008C    311 _TR0	=	0x008c
+                    008D    312 _TF0	=	0x008d
+                    008E    313 _TR1	=	0x008e
+                    008F    314 _TF1	=	0x008f
+                    0090    315 _P1_0	=	0x0090
+                    0091    316 _P1_1	=	0x0091
+                    0092    317 _P1_2	=	0x0092
+                    0093    318 _P1_3	=	0x0093
+                    0094    319 _P1_4	=	0x0094
+                    0095    320 _P1_5	=	0x0095
+                    0096    321 _P1_6	=	0x0096
+                    0097    322 _P1_7	=	0x0097
+                    0098    323 _RI	=	0x0098
+                    0099    324 _TI	=	0x0099
+                    009A    325 _RB8	=	0x009a
+                    009B    326 _TB8	=	0x009b
+                    009C    327 _REN	=	0x009c
+                    009D    328 _SM2	=	0x009d
+                    009E    329 _SM1	=	0x009e
+                    009F    330 _SM0	=	0x009f
+                    00A0    331 _P2_0	=	0x00a0
+                    00A1    332 _P2_1	=	0x00a1
+                    00A2    333 _P2_2	=	0x00a2
+                    00A3    334 _P2_3	=	0x00a3
+                    00A4    335 _P2_4	=	0x00a4
+                    00A5    336 _P2_5	=	0x00a5
+                    00A6    337 _P2_6	=	0x00a6
+                    00A7    338 _P2_7	=	0x00a7
+                    00A8    339 _EX0	=	0x00a8
+                    00A9    340 _ET0	=	0x00a9
+                    00AA    341 _EX1	=	0x00aa
+                    00AB    342 _ET1	=	0x00ab
+                    00AC    343 _ES	=	0x00ac
+                    00AF    344 _EA	=	0x00af
+                    00B0    345 _P3_0	=	0x00b0
+                    00B1    346 _P3_1	=	0x00b1
+                    00B2    347 _P3_2	=	0x00b2
+                    00B3    348 _P3_3	=	0x00b3
+                    00B4    349 _P3_4	=	0x00b4
+                    00B5    350 _P3_5	=	0x00b5
+                    00B6    351 _P3_6	=	0x00b6
+                    00B7    352 _P3_7	=	0x00b7
+                    00B0    353 _RXD	=	0x00b0
+                    00B1    354 _TXD	=	0x00b1
+                    00B2    355 _INT0	=	0x00b2
+                    00B3    356 _INT1	=	0x00b3
+                    00B4    357 _T0	=	0x00b4
+                    00B5    358 _T1	=	0x00b5
+                    00B6    359 _WR	=	0x00b6
+                    00B7    360 _RD	=	0x00b7
+                    00B8    361 _PX0	=	0x00b8
+                    00B9    362 _PT0	=	0x00b9
+                    00BA    363 _PX1	=	0x00ba
+                    00BB    364 _PT1	=	0x00bb
+                    00BC    365 _PS	=	0x00bc
+                    00D0    366 _P	=	0x00d0
+                    00D1    367 _F1	=	0x00d1
+                    00D2    368 _OV	=	0x00d2
+                    00D3    369 _RS0	=	0x00d3
+                    00D4    370 _RS1	=	0x00d4
+                    00D5    371 _F0	=	0x00d5
+                    00D6    372 _AC	=	0x00d6
+                    00D7    373 _CY	=	0x00d7
+                    00AD    374 _ET2	=	0x00ad
+                    00BD    375 _PT2	=	0x00bd
+                    00C8    376 _T2CON_0	=	0x00c8
+                    00C9    377 _T2CON_1	=	0x00c9
+                    00CA    378 _T2CON_2	=	0x00ca
+                    00CB    379 _T2CON_3	=	0x00cb
+                    00CC    380 _T2CON_4	=	0x00cc
+                    00CD    381 _T2CON_5	=	0x00cd
+                    00CE    382 _T2CON_6	=	0x00ce
+                    00CF    383 _T2CON_7	=	0x00cf
+                    00C8    384 _CP_RL2	=	0x00c8
+                    00C9    385 _C_T2	=	0x00c9
+                    00CA    386 _TR2	=	0x00ca
+                    00CB    387 _EXEN2	=	0x00cb
+                    00CC    388 _TCLK	=	0x00cc
+                    00CD    389 _RCLK	=	0x00cd
+                    00CE    390 _EXF2	=	0x00ce
+                    00CF    391 _TF2	=	0x00cf
+                    00DF    392 _CF	=	0x00df
+                    00DE    393 _CR	=	0x00de
+                    00DC    394 _CCF4	=	0x00dc
+                    00DB    395 _CCF3	=	0x00db
+                    00DA    396 _CCF2	=	0x00da
+                    00D9    397 _CCF1	=	0x00d9
+                    00D8    398 _CCF0	=	0x00d8
+                    00AE    399 _EC	=	0x00ae
+                    00BE    400 _PPCL	=	0x00be
+                    00BD    401 _PT2L	=	0x00bd
+                    00BC    402 _PLS	=	0x00bc
+                    00BB    403 _PT1L	=	0x00bb
+                    00BA    404 _PX1L	=	0x00ba
+                    00B9    405 _PT0L	=	0x00b9
+                    00B8    406 _PX0L	=	0x00b8
+                    00C0    407 _P4_0	=	0x00c0
+                    00C1    408 _P4_1	=	0x00c1
+                    00C2    409 _P4_2	=	0x00c2
+                    00C3    410 _P4_3	=	0x00c3
+                    00C4    411 _P4_4	=	0x00c4
+                    00C5    412 _P4_5	=	0x00c5
+                    00C6    413 _P4_6	=	0x00c6
+                    00C7    414 _P4_7	=	0x00c7
+                    00D8    415 _P5_0	=	0x00d8
+                    00D9    416 _P5_1	=	0x00d9
+                    00DA    417 _P5_2	=	0x00da
+                    00DB    418 _P5_3	=	0x00db
+                    00DC    419 _P5_4	=	0x00dc
+                    00DD    420 _P5_5	=	0x00dd
+                    00DE    421 _P5_6	=	0x00de
+                    00DF    422 _P5_7	=	0x00df
+                            423 ;--------------------------------------------------------
+                            424 ; overlayable register banks
+                            425 ;--------------------------------------------------------
+                            426 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                     427 	.ds 8
+                            428 ;--------------------------------------------------------
+                            429 ; internal ram data
+                            430 ;--------------------------------------------------------
+                            431 	.area DSEG    (DATA)
+                            432 ;--------------------------------------------------------
+                            433 ; overlayable items in internal ram 
+                            434 ;--------------------------------------------------------
+                            435 	.area OSEG    (OVR,DATA)
+                            436 ;--------------------------------------------------------
+                            437 ; indirectly addressable internal ram data
+                            438 ;--------------------------------------------------------
+                            439 	.area ISEG    (DATA)
+                            440 ;--------------------------------------------------------
+                            441 ; bit data
+                            442 ;--------------------------------------------------------
+                            443 	.area BSEG    (BIT)
+                            444 ;--------------------------------------------------------
+                            445 ; paged external ram data
+                            446 ;--------------------------------------------------------
+                            447 	.area PSEG    (PAG,XDATA)
+                            448 ;--------------------------------------------------------
+                            449 ; external ram data
+                            450 ;--------------------------------------------------------
+                            451 	.area XSEG    (XDATA)
+                    F000    452 _lcdinstwrptr	=	0xf000
+                    F100    453 _lcdinstrdptr	=	0xf100
+                    F200    454 _lcddatawrptr	=	0xf200
+                    F300    455 _lcddatardptr	=	0xf300
+   0000                     456 _Stat::
+   0000                     457 	.ds 1
+                    1000    458 _CardType	=	0x1000
+                    2000    459 _SDCard	=	0x2000
+                    3000    460 _xbuffer	=	0x3000
+                            461 ;--------------------------------------------------------
+                            462 ; external initialized ram data
+                            463 ;--------------------------------------------------------
+                            464 	.area XISEG   (XDATA)
+                            465 	.area HOME    (CODE)
+                            466 	.area GSINIT0 (CODE)
+                            467 	.area GSINIT1 (CODE)
+                            468 	.area GSINIT2 (CODE)
+                            469 	.area GSINIT3 (CODE)
+                            470 	.area GSINIT4 (CODE)
+                            471 	.area GSINIT5 (CODE)
+                            472 	.area GSINIT  (CODE)
+                            473 	.area GSFINAL (CODE)
+                            474 	.area CSEG    (CODE)
+                            475 ;--------------------------------------------------------
+                            476 ; global & static initialisations
+                            477 ;--------------------------------------------------------
+                            478 	.area HOME    (CODE)
+                            479 	.area GSINIT  (CODE)
+                            480 	.area GSFINAL (CODE)
+                            481 	.area GSINIT  (CODE)
+                            482 ;--------------------------------------------------------
+                            483 ; Home
+                            484 ;--------------------------------------------------------
+                            485 	.area HOME    (CODE)
+                            486 	.area CSEG    (CODE)
+                            487 ;--------------------------------------------------------
+                            488 ; code
+                            489 ;--------------------------------------------------------
+                            490 	.area CSEG    (CODE)
+                            491 ;------------------------------------------------------------
+                            492 ;Allocation info for local variables in function 'disk_initialize'
+                            493 ;------------------------------------------------------------
+                            494 ;drv                       Allocated to registers r2 
+                            495 ;------------------------------------------------------------
+                            496 ;	FatDrivers/diskio.c:49: DSTATUS disk_initialize( BYTE drv )
+                            497 ;	-----------------------------------------
+                            498 ;	 function disk_initialize
+                            499 ;	-----------------------------------------
+   0000                     500 _disk_initialize:
+                    0002    501 	ar2 = 0x02
+                    0003    502 	ar3 = 0x03
+                    0004    503 	ar4 = 0x04
+                    0005    504 	ar5 = 0x05
+                    0006    505 	ar6 = 0x06
+                    0007    506 	ar7 = 0x07
+                    0000    507 	ar0 = 0x00
+                    0001    508 	ar1 = 0x01
+                            509 ;	genReceive
+   0000 AA 82               510 	mov	r2,dpl
+                            511 ;	FatDrivers/diskio.c:52: if( drv != 0)
+                            512 ;	genCmpEq
+                            513 ;	gencjneshort
+   0002 BA 00 02            514 	cjne	r2,#0x00,00109$
+                            515 ;	Peephole 112.b	changed ljmp to sjmp
+   0005 80 04               516 	sjmp	00102$
+   0007                     517 00109$:
+                            518 ;	FatDrivers/diskio.c:53: return STA_NOINIT;
+                            519 ;	genRet
+   0007 75 82 01            520 	mov	dpl,#0x01
+                            521 ;	Peephole 112.b	changed ljmp to sjmp
+                            522 ;	Peephole 251.b	replaced sjmp to ret with ret
+   000A 22                  523 	ret
+   000B                     524 00102$:
+                            525 ;	FatDrivers/diskio.c:56: if( !SD_Init() )
+                            526 ;	genCall
+   000B 12s00r00            527 	lcall	_SD_Init
+   000E E5 82               528 	mov	a,dpl
+                            529 ;	genIfx
+                            530 ;	genIfxJump
+                            531 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   0010 70 08               532 	jnz	00104$
+                            533 ;	Peephole 300	removed redundant label 00110$
+                            534 ;	FatDrivers/diskio.c:59: Stat &= ~STA_NOINIT;
+                            535 ;	genAssign
+                            536 ;	genAnd
+   0012 90s00r00            537 	mov	dptr,#_Stat
+   0015 E0                  538 	movx	a,@dptr
+   0016 FA                  539 	mov	r2,a
+                            540 ;	Peephole 248.b	optimized and to xdata
+   0017 54 FE               541 	anl	a,#0xFE
+   0019 F0                  542 	movx	@dptr,a
+   001A                     543 00104$:
+                            544 ;	FatDrivers/diskio.c:63: return( Stat );
+                            545 ;	genAssign
+   001A 90s00r00            546 	mov	dptr,#_Stat
+   001D E0                  547 	movx	a,@dptr
+                            548 ;	genRet
+                            549 ;	Peephole 234.a	loading dpl directly from a(ccumulator), r2 not set
+   001E F5 82               550 	mov	dpl,a
+                            551 ;	Peephole 300	removed redundant label 00105$
+   0020 22                  552 	ret
+                            553 ;------------------------------------------------------------
+                            554 ;Allocation info for local variables in function 'disk_status'
+                            555 ;------------------------------------------------------------
+                            556 ;drv                       Allocated to registers r2 
+                            557 ;------------------------------------------------------------
+                            558 ;	FatDrivers/diskio.c:69: DSTATUS disk_status( BYTE drv	)
+                            559 ;	-----------------------------------------
+                            560 ;	 function disk_status
+                            561 ;	-----------------------------------------
+   0021                     562 _disk_status:
+                            563 ;	genReceive
+   0021 AA 82               564 	mov	r2,dpl
+                            565 ;	FatDrivers/diskio.c:72: if( drv != 0)
+                            566 ;	genCmpEq
+                            567 ;	gencjneshort
+   0023 BA 00 02            568 	cjne	r2,#0x00,00106$
+                            569 ;	Peephole 112.b	changed ljmp to sjmp
+   0026 80 04               570 	sjmp	00102$
+   0028                     571 00106$:
+                            572 ;	FatDrivers/diskio.c:73: return STA_NOINIT;
+                            573 ;	genRet
+   0028 75 82 01            574 	mov	dpl,#0x01
+                            575 ;	Peephole 112.b	changed ljmp to sjmp
+                            576 ;	Peephole 251.b	replaced sjmp to ret with ret
+   002B 22                  577 	ret
+   002C                     578 00102$:
+                            579 ;	FatDrivers/diskio.c:76: return( Stat );
+                            580 ;	genAssign
+   002C 90s00r00            581 	mov	dptr,#_Stat
+   002F E0                  582 	movx	a,@dptr
+                            583 ;	genRet
+                            584 ;	Peephole 234.a	loading dpl directly from a(ccumulator), r2 not set
+   0030 F5 82               585 	mov	dpl,a
+                            586 ;	Peephole 300	removed redundant label 00103$
+   0032 22                  587 	ret
+                            588 ;------------------------------------------------------------
+                            589 ;Allocation info for local variables in function 'disk_read'
+                            590 ;------------------------------------------------------------
+                            591 ;buff                      Allocated to stack - offset -5
+                            592 ;sector                    Allocated to stack - offset -9
+                            593 ;count                     Allocated to stack - offset -10
+                            594 ;drv                       Allocated to registers r2 
+                            595 ;------------------------------------------------------------
+                            596 ;	FatDrivers/diskio.c:84: DRESULT disk_read ( BYTE drv, BYTE *buff, DWORD sector, BYTE count )
+                            597 ;	-----------------------------------------
+                            598 ;	 function disk_read
+                            599 ;	-----------------------------------------
+   0033                     600 _disk_read:
+   0033 C0*00               601 	push	_bp
+   0035 85 81*00            602 	mov	_bp,sp
+                            603 ;	genReceive
+                            604 ;	FatDrivers/diskio.c:87: if( drv || !count || (count>
+                            605 ;	genIfx
+                            606 ;	peephole 177.g	optimized mov sequence
+   0038 E5 82               607 	mov	a,dpl
+   003A FA                  608 	mov	r2,a
+                            609 ;	genIfxJump
+                            610 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   003B 70 12               611 	jnz	00101$
+                            612 ;	Peephole 300	removed redundant label 00115$
+                            613 ;	genIfx
+   003D E5*00               614 	mov	a,_bp
+   003F 24 F6               615 	add	a,#0xfffffff6
+   0041 F8                  616 	mov	r0,a
+   0042 E6                  617 	mov	a,@r0
+                            618 ;	genIfxJump
+                            619 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   0043 60 0A               620 	jz	00101$
+                            621 ;	Peephole 300	removed redundant label 00116$
+                            622 ;	FatDrivers/diskio.c:88: 1) )
+                            623 ;	genCmpGt
+   0045 E5*00               624 	mov	a,_bp
+   0047 24 F6               625 	add	a,#0xfffffff6
+   0049 F8                  626 	mov	r0,a
+                            627 ;	genCmp
+                            628 ;	genIfxJump
+                            629 ;	Peephole 108.a	removed ljmp by inverse jump logic
+                            630 ;	Peephole 132.b	optimized genCmpGt by inverse logic (acc differs)
+   004A E6                  631 	mov	a,@r0
+   004B 24 FE               632 	add	a,#0xff - 0x01
+   004D 50 05               633 	jnc	00102$
+                            634 ;	Peephole 300	removed redundant label 00117$
+   004F                     635 00101$:
+                            636 ;	FatDrivers/diskio.c:89: return( RES_PARERR );
+                            637 ;	genRet
+   004F 75 82 04            638 	mov	dpl,#0x04
+                            639 ;	Peephole 112.b	changed ljmp to sjmp
+   0052 80 42               640 	sjmp	00109$
+   0054                     641 00102$:
+                            642 ;	FatDrivers/diskio.c:92: if( Stat & STA_NOINIT )
+                            643 ;	genAssign
+   0054 90s00r00            644 	mov	dptr,#_Stat
+   0057 E0                  645 	movx	a,@dptr
+                            646 ;	genAnd
+   0058 FA                  647 	mov	r2,a
+                            648 ;	Peephole 105	removed redundant mov
+                            649 ;	genIfxJump
+                            650 ;	Peephole 108.d	removed ljmp by inverse jump logic
+   0059 30 E0 05            651 	jnb	acc.0,00106$
+                            652 ;	Peephole 300	removed redundant label 00118$
+                            653 ;	FatDrivers/diskio.c:93: return( RES_NOTRDY );
+                            654 ;	genRet
+   005C 75 82 03            655 	mov	dpl,#0x03
+                            656 ;	Peephole 112.b	changed ljmp to sjmp
+   005F 80 35               657 	sjmp	00109$
+   0061                     658 00106$:
+                            659 ;	FatDrivers/diskio.c:96: if( SD_ReadSector( sector, buff ) )
+                            660 ;	genIpush
+   0061 E5*00               661 	mov	a,_bp
+   0063 24 FB               662 	add	a,#0xfffffffb
+   0065 F8                  663 	mov	r0,a
+   0066 E6                  664 	mov	a,@r0
+   0067 C0 E0               665 	push	acc
+   0069 08                  666 	inc	r0
+   006A E6                  667 	mov	a,@r0
+   006B C0 E0               668 	push	acc
+   006D 08                  669 	inc	r0
+   006E E6                  670 	mov	a,@r0
+   006F C0 E0               671 	push	acc
+                            672 ;	genCall
+   0071 E5*00               673 	mov	a,_bp
+   0073 24 F7               674 	add	a,#0xfffffff7
+   0075 F8                  675 	mov	r0,a
+   0076 86 82               676 	mov	dpl,@r0
+   0078 08                  677 	inc	r0
+   0079 86 83               678 	mov	dph,@r0
+   007B 08                  679 	inc	r0
+   007C 86 F0               680 	mov	b,@r0
+   007E 08                  681 	inc	r0
+   007F E6                  682 	mov	a,@r0
+   0080 12s00r00            683 	lcall	_SD_ReadSector
+   0083 AA 82               684 	mov	r2,dpl
+   0085 15 81               685 	dec	sp
+   0087 15 81               686 	dec	sp
+   0089 15 81               687 	dec	sp
+                            688 ;	genIfx
+   008B EA                  689 	mov	a,r2
+                            690 ;	genIfxJump
+                            691 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   008C 60 05               692 	jz	00108$
+                            693 ;	Peephole 300	removed redundant label 00119$
+                            694 ;	FatDrivers/diskio.c:97: return( RES_ERROR );
+                            695 ;	genRet
+   008E 75 82 01            696 	mov	dpl,#0x01
+                            697 ;	Peephole 112.b	changed ljmp to sjmp
+   0091 80 03               698 	sjmp	00109$
+   0093                     699 00108$:
+                            700 ;	FatDrivers/diskio.c:100: return( RES_OK );
+                            701 ;	genRet
+   0093 75 82 00            702 	mov	dpl,#0x00
+   0096                     703 00109$:
+   0096 D0*00               704 	pop	_bp
+   0098 22                  705 	ret
+                            706 ;------------------------------------------------------------
+                            707 ;Allocation info for local variables in function 'disk_mp3_read'
+                            708 ;------------------------------------------------------------
+                            709 ;buff                      Allocated to stack - offset -5
+                            710 ;sector                    Allocated to stack - offset -9
+                            711 ;count                     Allocated to stack - offset -10
+                            712 ;drv                       Allocated to registers r2 
+                            713 ;------------------------------------------------------------
+                            714 ;	FatDrivers/diskio.c:103: DRESULT disk_mp3_read ( BYTE drv, BYTE *buff, DWORD sector, BYTE count )
+                            715 ;	-----------------------------------------
+                            716 ;	 function disk_mp3_read
+                            717 ;	-----------------------------------------
+   0099                     718 _disk_mp3_read:
+   0099 C0*00               719 	push	_bp
+   009B 85 81*00            720 	mov	_bp,sp
+                            721 ;	genReceive
+                            722 ;	FatDrivers/diskio.c:106: if( drv || !count || (count>
+                            723 ;	genIfx
+                            724 ;	peephole 177.g	optimized mov sequence
+   009E E5 82               725 	mov	a,dpl
+   00A0 FA                  726 	mov	r2,a
+                            727 ;	genIfxJump
+                            728 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   00A1 70 12               729 	jnz	00101$
+                            730 ;	Peephole 300	removed redundant label 00115$
+                            731 ;	genIfx
+   00A3 E5*00               732 	mov	a,_bp
+   00A5 24 F6               733 	add	a,#0xfffffff6
+   00A7 F8                  734 	mov	r0,a
+   00A8 E6                  735 	mov	a,@r0
+                            736 ;	genIfxJump
+                            737 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   00A9 60 0A               738 	jz	00101$
+                            739 ;	Peephole 300	removed redundant label 00116$
+                            740 ;	FatDrivers/diskio.c:107: 1) )
+                            741 ;	genCmpGt
+   00AB E5*00               742 	mov	a,_bp
+   00AD 24 F6               743 	add	a,#0xfffffff6
+   00AF F8                  744 	mov	r0,a
+                            745 ;	genCmp
+                            746 ;	genIfxJump
+                            747 ;	Peephole 108.a	removed ljmp by inverse jump logic
+                            748 ;	Peephole 132.b	optimized genCmpGt by inverse logic (acc differs)
+   00B0 E6                  749 	mov	a,@r0
+   00B1 24 FE               750 	add	a,#0xff - 0x01
+   00B3 50 05               751 	jnc	00102$
+                            752 ;	Peephole 300	removed redundant label 00117$
+   00B5                     753 00101$:
+                            754 ;	FatDrivers/diskio.c:108: return( RES_PARERR );
+                            755 ;	genRet
+   00B5 75 82 04            756 	mov	dpl,#0x04
+                            757 ;	Peephole 112.b	changed ljmp to sjmp
+   00B8 80 4B               758 	sjmp	00109$
+   00BA                     759 00102$:
+                            760 ;	FatDrivers/diskio.c:111: if( Stat & STA_NOINIT )
+                            761 ;	genAssign
+   00BA 90s00r00            762 	mov	dptr,#_Stat
+   00BD E0                  763 	movx	a,@dptr
+                            764 ;	genAnd
+   00BE FA                  765 	mov	r2,a
+                            766 ;	Peephole 105	removed redundant mov
+                            767 ;	genIfxJump
+                            768 ;	Peephole 108.d	removed ljmp by inverse jump logic
+   00BF 30 E0 05            769 	jnb	acc.0,00106$
+                            770 ;	Peephole 300	removed redundant label 00118$
+                            771 ;	FatDrivers/diskio.c:112: return( RES_NOTRDY );
+                            772 ;	genRet
+   00C2 75 82 03            773 	mov	dpl,#0x03
+                            774 ;	Peephole 112.b	changed ljmp to sjmp
+   00C5 80 3E               775 	sjmp	00109$
+   00C7                     776 00106$:
+                            777 ;	FatDrivers/diskio.c:114: *buff=*buff;        // Lazily used buff instead of getting rid of the variable
+                            778 ;	genAssign
+   00C7 E5*00               779 	mov	a,_bp
+   00C9 24 FB               780 	add	a,#0xfffffffb
+   00CB F8                  781 	mov	r0,a
+   00CC 86 02               782 	mov	ar2,@r0
+   00CE 08                  783 	inc	r0
+   00CF 86 03               784 	mov	ar3,@r0
+   00D1 08                  785 	inc	r0
+   00D2 86 04               786 	mov	ar4,@r0
+                            787 ;	genPointerGet
+                            788 ;	genGenPointerGet
+   00D4 8A 82               789 	mov	dpl,r2
+   00D6 8B 83               790 	mov	dph,r3
+   00D8 8C F0               791 	mov	b,r4
+   00DA 12s00r00            792 	lcall	__gptrget
+                            793 ;	genPointerSet
+                            794 ;	genGenPointerSet
+   00DD FD                  795 	mov	r5,a
+   00DE 8A 82               796 	mov	dpl,r2
+   00E0 8B 83               797 	mov	dph,r3
+   00E2 8C F0               798 	mov	b,r4
+                            799 ;	Peephole 191	removed redundant mov
+   00E4 12s00r00            800 	lcall	__gptrput
+                            801 ;	FatDrivers/diskio.c:117: if( SD_ReadMP3( sector ) )
+                            802 ;	genCall
+   00E7 E5*00               803 	mov	a,_bp
+   00E9 24 F7               804 	add	a,#0xfffffff7
+   00EB F8                  805 	mov	r0,a
+   00EC 86 82               806 	mov	dpl,@r0
+   00EE 08                  807 	inc	r0
+   00EF 86 83               808 	mov	dph,@r0
+   00F1 08                  809 	inc	r0
+   00F2 86 F0               810 	mov	b,@r0
+   00F4 08                  811 	inc	r0
+   00F5 E6                  812 	mov	a,@r0
+   00F6 12s00r00            813 	lcall	_SD_ReadMP3
+   00F9 E5 82               814 	mov	a,dpl
+                            815 ;	genIfx
+                            816 ;	genIfxJump
+                            817 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   00FB 60 05               818 	jz	00108$
+                            819 ;	Peephole 300	removed redundant label 00119$
+                            820 ;	FatDrivers/diskio.c:118: return( RES_ERROR );
+                            821 ;	genRet
+   00FD 75 82 01            822 	mov	dpl,#0x01
+                            823 ;	Peephole 112.b	changed ljmp to sjmp
+   0100 80 03               824 	sjmp	00109$
+   0102                     825 00108$:
+                            826 ;	FatDrivers/diskio.c:121: return( RES_OK );
+                            827 ;	genRet
+   0102 75 82 00            828 	mov	dpl,#0x00
+   0105                     829 00109$:
+   0105 D0*00               830 	pop	_bp
+   0107 22                  831 	ret
+                            832 ;------------------------------------------------------------
+                            833 ;Allocation info for local variables in function 'disk_txt_read'
+                            834 ;------------------------------------------------------------
+                            835 ;buff                      Allocated to stack - offset -5
+                            836 ;sector                    Allocated to stack - offset -9
+                            837 ;count                     Allocated to stack - offset -10
+                            838 ;drv                       Allocated to registers r2 
+                            839 ;------------------------------------------------------------
+                            840 ;	FatDrivers/diskio.c:124: DRESULT disk_txt_read ( BYTE drv, BYTE *buff, DWORD sector, BYTE count )
+                            841 ;	-----------------------------------------
+                            842 ;	 function disk_txt_read
+                            843 ;	-----------------------------------------
+   0108                     844 _disk_txt_read:
+   0108 C0*00               845 	push	_bp
+   010A 85 81*00            846 	mov	_bp,sp
+                            847 ;	genReceive
+                            848 ;	FatDrivers/diskio.c:127: if( drv || !count || (count>
+                            849 ;	genIfx
+                            850 ;	peephole 177.g	optimized mov sequence
+   010D E5 82               851 	mov	a,dpl
+   010F FA                  852 	mov	r2,a
+                            853 ;	genIfxJump
+                            854 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   0110 70 12               855 	jnz	00101$
+                            856 ;	Peephole 300	removed redundant label 00115$
+                            857 ;	genIfx
+   0112 E5*00               858 	mov	a,_bp
+   0114 24 F6               859 	add	a,#0xfffffff6
+   0116 F8                  860 	mov	r0,a
+   0117 E6                  861 	mov	a,@r0
+                            862 ;	genIfxJump
+                            863 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   0118 60 0A               864 	jz	00101$
+                            865 ;	Peephole 300	removed redundant label 00116$
+                            866 ;	FatDrivers/diskio.c:128: 1) )
+                            867 ;	genCmpGt
+   011A E5*00               868 	mov	a,_bp
+   011C 24 F6               869 	add	a,#0xfffffff6
+   011E F8                  870 	mov	r0,a
+                            871 ;	genCmp
+                            872 ;	genIfxJump
+                            873 ;	Peephole 108.a	removed ljmp by inverse jump logic
+                            874 ;	Peephole 132.b	optimized genCmpGt by inverse logic (acc differs)
+   011F E6                  875 	mov	a,@r0
+   0120 24 FE               876 	add	a,#0xff - 0x01
+   0122 50 05               877 	jnc	00102$
+                            878 ;	Peephole 300	removed redundant label 00117$
+   0124                     879 00101$:
+                            880 ;	FatDrivers/diskio.c:129: return( RES_PARERR );
+                            881 ;	genRet
+   0124 75 82 04            882 	mov	dpl,#0x04
+                            883 ;	Peephole 112.b	changed ljmp to sjmp
+   0127 80 4B               884 	sjmp	00109$
+   0129                     885 00102$:
+                            886 ;	FatDrivers/diskio.c:132: if( Stat & STA_NOINIT )
+                            887 ;	genAssign
+   0129 90s00r00            888 	mov	dptr,#_Stat
+   012C E0                  889 	movx	a,@dptr
+                            890 ;	genAnd
+   012D FA                  891 	mov	r2,a
+                            892 ;	Peephole 105	removed redundant mov
+                            893 ;	genIfxJump
+                            894 ;	Peephole 108.d	removed ljmp by inverse jump logic
+   012E 30 E0 05            895 	jnb	acc.0,00106$
+                            896 ;	Peephole 300	removed redundant label 00118$
+                            897 ;	FatDrivers/diskio.c:133: return( RES_NOTRDY );
+                            898 ;	genRet
+   0131 75 82 03            899 	mov	dpl,#0x03
+                            900 ;	Peephole 112.b	changed ljmp to sjmp
+   0134 80 3E               901 	sjmp	00109$
+   0136                     902 00106$:
+                            903 ;	FatDrivers/diskio.c:135: *buff=*buff;        // Lazily used buff instead of getting rid of the variable
+                            904 ;	genAssign
+   0136 E5*00               905 	mov	a,_bp
+   0138 24 FB               906 	add	a,#0xfffffffb
+   013A F8                  907 	mov	r0,a
+   013B 86 02               908 	mov	ar2,@r0
+   013D 08                  909 	inc	r0
+   013E 86 03               910 	mov	ar3,@r0
+   0140 08                  911 	inc	r0
+   0141 86 04               912 	mov	ar4,@r0
+                            913 ;	genPointerGet
+                            914 ;	genGenPointerGet
+   0143 8A 82               915 	mov	dpl,r2
+   0145 8B 83               916 	mov	dph,r3
+   0147 8C F0               917 	mov	b,r4
+   0149 12s00r00            918 	lcall	__gptrget
+                            919 ;	genPointerSet
+                            920 ;	genGenPointerSet
+   014C FD                  921 	mov	r5,a
+   014D 8A 82               922 	mov	dpl,r2
+   014F 8B 83               923 	mov	dph,r3
+   0151 8C F0               924 	mov	b,r4
+                            925 ;	Peephole 191	removed redundant mov
+   0153 12s00r00            926 	lcall	__gptrput
+                            927 ;	FatDrivers/diskio.c:138: if( SD_PrintTXT( sector) )
+                            928 ;	genCall
+   0156 E5*00               929 	mov	a,_bp
+   0158 24 F7               930 	add	a,#0xfffffff7
+   015A F8                  931 	mov	r0,a
+   015B 86 82               932 	mov	dpl,@r0
+   015D 08                  933 	inc	r0
+   015E 86 83               934 	mov	dph,@r0
+   0160 08                  935 	inc	r0
+   0161 86 F0               936 	mov	b,@r0
+   0163 08                  937 	inc	r0
+   0164 E6                  938 	mov	a,@r0
+   0165 12s00r00            939 	lcall	_SD_PrintTXT
+   0168 E5 82               940 	mov	a,dpl
+                            941 ;	genIfx
+                            942 ;	genIfxJump
+                            943 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   016A 60 05               944 	jz	00108$
+                            945 ;	Peephole 300	removed redundant label 00119$
+                            946 ;	FatDrivers/diskio.c:139: return( RES_ERROR );
+                            947 ;	genRet
+   016C 75 82 01            948 	mov	dpl,#0x01
+                            949 ;	Peephole 112.b	changed ljmp to sjmp
+   016F 80 03               950 	sjmp	00109$
+   0171                     951 00108$:
+                            952 ;	FatDrivers/diskio.c:142: return( RES_OK );
+                            953 ;	genRet
+   0171 75 82 00            954 	mov	dpl,#0x00
+   0174                     955 00109$:
+   0174 D0*00               956 	pop	_bp
+   0176 22                  957 	ret
+                            958 ;------------------------------------------------------------
+                            959 ;Allocation info for local variables in function 'disk_write'
+                            960 ;------------------------------------------------------------
+                            961 ;buff                      Allocated to stack - offset -5
+                            962 ;sector                    Allocated to stack - offset -9
+                            963 ;count                     Allocated to stack - offset -10
+                            964 ;drv                       Allocated to registers r2 
+                            965 ;------------------------------------------------------------
+                            966 ;	FatDrivers/diskio.c:149: DRESULT disk_write( BYTE drv, const BYTE *buff, DWORD sector, BYTE count )
+                            967 ;	-----------------------------------------
+                            968 ;	 function disk_write
+                            969 ;	-----------------------------------------
+   0177                     970 _disk_write:
+   0177 C0*00               971 	push	_bp
+   0179 85 81*00            972 	mov	_bp,sp
+                            973 ;	genReceive
+                            974 ;	FatDrivers/diskio.c:152: if( drv || !count || (count>
+                            975 ;	genIfx
+                            976 ;	peephole 177.g	optimized mov sequence
+   017C E5 82               977 	mov	a,dpl
+   017E FA                  978 	mov	r2,a
+                            979 ;	genIfxJump
+                            980 ;	Peephole 108.b	removed ljmp by inverse jump logic
+   017F 70 12               981 	jnz	00101$
+                            982 ;	Peephole 300	removed redundant label 00115$
+                            983 ;	genIfx
+   0181 E5*00               984 	mov	a,_bp
+   0183 24 F6               985 	add	a,#0xfffffff6
+   0185 F8                  986 	mov	r0,a
+   0186 E6                  987 	mov	a,@r0
+                            988 ;	genIfxJump
+                            989 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   0187 60 0A               990 	jz	00101$
+                            991 ;	Peephole 300	removed redundant label 00116$
+                            992 ;	FatDrivers/diskio.c:153: 1) )
+                            993 ;	genCmpGt
+   0189 E5*00               994 	mov	a,_bp
+   018B 24 F6               995 	add	a,#0xfffffff6
+   018D F8                  996 	mov	r0,a
+                            997 ;	genCmp
+                            998 ;	genIfxJump
+                            999 ;	Peephole 108.a	removed ljmp by inverse jump logic
+                           1000 ;	Peephole 132.b	optimized genCmpGt by inverse logic (acc differs)
+   018E E6                 1001 	mov	a,@r0
+   018F 24 FE              1002 	add	a,#0xff - 0x01
+   0191 50 05              1003 	jnc	00102$
+                           1004 ;	Peephole 300	removed redundant label 00117$
+   0193                    1005 00101$:
+                           1006 ;	FatDrivers/diskio.c:154: return( RES_PARERR );
+                           1007 ;	genRet
+   0193 75 82 04           1008 	mov	dpl,#0x04
+                           1009 ;	Peephole 112.b	changed ljmp to sjmp
+   0196 80 42              1010 	sjmp	00109$
+   0198                    1011 00102$:
+                           1012 ;	FatDrivers/diskio.c:157: if( Stat & STA_NOINIT )
+                           1013 ;	genAssign
+   0198 90s00r00           1014 	mov	dptr,#_Stat
+   019B E0                 1015 	movx	a,@dptr
+                           1016 ;	genAnd
+   019C FA                 1017 	mov	r2,a
+                           1018 ;	Peephole 105	removed redundant mov
+                           1019 ;	genIfxJump
+                           1020 ;	Peephole 108.d	removed ljmp by inverse jump logic
+   019D 30 E0 05           1021 	jnb	acc.0,00106$
+                           1022 ;	Peephole 300	removed redundant label 00118$
+                           1023 ;	FatDrivers/diskio.c:158: return( RES_NOTRDY );
+                           1024 ;	genRet
+   01A0 75 82 03           1025 	mov	dpl,#0x03
+                           1026 ;	Peephole 112.b	changed ljmp to sjmp
+   01A3 80 35              1027 	sjmp	00109$
+   01A5                    1028 00106$:
+                           1029 ;	FatDrivers/diskio.c:161: if( SD_WriteSector( sector, buff ) )
+                           1030 ;	genIpush
+   01A5 E5*00              1031 	mov	a,_bp
+   01A7 24 FB              1032 	add	a,#0xfffffffb
+   01A9 F8                 1033 	mov	r0,a
+   01AA E6                 1034 	mov	a,@r0
+   01AB C0 E0              1035 	push	acc
+   01AD 08                 1036 	inc	r0
+   01AE E6                 1037 	mov	a,@r0
+   01AF C0 E0              1038 	push	acc
+   01B1 08                 1039 	inc	r0
+   01B2 E6                 1040 	mov	a,@r0
+   01B3 C0 E0              1041 	push	acc
+                           1042 ;	genCall
+   01B5 E5*00              1043 	mov	a,_bp
+   01B7 24 F7              1044 	add	a,#0xfffffff7
+   01B9 F8                 1045 	mov	r0,a
+   01BA 86 82              1046 	mov	dpl,@r0
+   01BC 08                 1047 	inc	r0
+   01BD 86 83              1048 	mov	dph,@r0
+   01BF 08                 1049 	inc	r0
+   01C0 86 F0              1050 	mov	b,@r0
+   01C2 08                 1051 	inc	r0
+   01C3 E6                 1052 	mov	a,@r0
+   01C4 12s00r00           1053 	lcall	_SD_WriteSector
+   01C7 AA 82              1054 	mov	r2,dpl
+   01C9 15 81              1055 	dec	sp
+   01CB 15 81              1056 	dec	sp
+   01CD 15 81              1057 	dec	sp
+                           1058 ;	genIfx
+   01CF EA                 1059 	mov	a,r2
+                           1060 ;	genIfxJump
+                           1061 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   01D0 60 05              1062 	jz	00108$
+                           1063 ;	Peephole 300	removed redundant label 00119$
+                           1064 ;	FatDrivers/diskio.c:162: return( RES_ERROR );
+                           1065 ;	genRet
+   01D2 75 82 01           1066 	mov	dpl,#0x01
+                           1067 ;	Peephole 112.b	changed ljmp to sjmp
+   01D5 80 03              1068 	sjmp	00109$
+   01D7                    1069 00108$:
+                           1070 ;	FatDrivers/diskio.c:165: return( RES_OK );
+                           1071 ;	genRet
+   01D7 75 82 00           1072 	mov	dpl,#0x00
+   01DA                    1073 00109$:
+   01DA D0*00              1074 	pop	_bp
+   01DC 22                 1075 	ret
+                           1076 ;------------------------------------------------------------
+                           1077 ;Allocation info for local variables in function 'disk_ioctl'
+                           1078 ;------------------------------------------------------------
+                           1079 ;ctrl                      Allocated to stack - offset -3
+                           1080 ;buff                      Allocated to stack - offset -6
+                           1081 ;drv                       Allocated to registers r2 
+                           1082 ;res                       Allocated to registers r2 
+                           1083 ;ptr                       Allocated to registers 
+                           1084 ;------------------------------------------------------------
+                           1085 ;	FatDrivers/diskio.c:174: DRESULT disk_ioctl ( BYTE drv, BYTE ctrl, void *buff )
+                           1086 ;	-----------------------------------------
+                           1087 ;	 function disk_ioctl
+                           1088 ;	-----------------------------------------
+   01DD                    1089 _disk_ioctl:
+   01DD C0*00              1090 	push	_bp
+   01DF 85 81*00           1091 	mov	_bp,sp
+                           1092 ;	genReceive
+   01E2 AA 82              1093 	mov	r2,dpl
+                           1094 ;	FatDrivers/diskio.c:180: if( drv != 0)
+                           1095 ;	genCmpEq
+                           1096 ;	gencjneshort
+   01E4 BA 00 02           1097 	cjne	r2,#0x00,00116$
+                           1098 ;	Peephole 112.b	changed ljmp to sjmp
+   01E7 80 05              1099 	sjmp	00102$
+   01E9                    1100 00116$:
+                           1101 ;	FatDrivers/diskio.c:181: return RES_PARERR;
+                           1102 ;	genRet
+   01E9 75 82 04           1103 	mov	dpl,#0x04
+                           1104 ;	Peephole 112.b	changed ljmp to sjmp
+   01EC 80 39              1105 	sjmp	00110$
+   01EE                    1106 00102$:
+                           1107 ;	FatDrivers/diskio.c:184: if( Stat & STA_NOINIT )
+                           1108 ;	genAssign
+   01EE 90s00r00           1109 	mov	dptr,#_Stat
+   01F1 E0                 1110 	movx	a,@dptr
+                           1111 ;	genAnd
+   01F2 FA                 1112 	mov	r2,a
+                           1113 ;	Peephole 105	removed redundant mov
+                           1114 ;	genIfxJump
+                           1115 ;	Peephole 108.d	removed ljmp by inverse jump logic
+   01F3 30 E0 05           1116 	jnb	acc.0,00104$
+                           1117 ;	Peephole 300	removed redundant label 00117$
+                           1118 ;	FatDrivers/diskio.c:185: return RES_NOTRDY;
+                           1119 ;	genRet
+   01F6 75 82 03           1120 	mov	dpl,#0x03
+                           1121 ;	Peephole 112.b	changed ljmp to sjmp
+   01F9 80 2C              1122 	sjmp	00110$
+   01FB                    1123 00104$:
+                           1124 ;	FatDrivers/diskio.c:187: res = RES_ERROR;
+                           1125 ;	genAssign
+   01FB 7A 01              1126 	mov	r2,#0x01
+                           1127 ;	FatDrivers/diskio.c:189: switch( ctrl )
+                           1128 ;	genCmpEq
+   01FD A8*00              1129 	mov	r0,_bp
+   01FF 18                 1130 	dec	r0
+   0200 18                 1131 	dec	r0
+   0201 18                 1132 	dec	r0
+                           1133 ;	gencjneshort
+                           1134 ;	Peephole 112.b	changed ljmp to sjmp
+                           1135 ;	Peephole 198.b	optimized misc jump sequence
+   0202 B6 00 12           1136 	cjne	@r0,#0x00,00108$
+                           1137 ;	Peephole 200.b	removed redundant sjmp
+                           1138 ;	Peephole 300	removed redundant label 00118$
+                           1139 ;	Peephole 300	removed redundant label 00119$
+                           1140 ;	FatDrivers/diskio.c:193: Enable_SD_Card();
+                           1141 ;	genAssign
+   0205 C2 91              1142 	clr	_P1_1
+                           1143 ;	FatDrivers/diskio.c:194: if( SD_WaitForReady() == 0xFF )
+                           1144 ;	genCall
+   0207 C0 02              1145 	push	ar2
+   0209 12s00r00           1146 	lcall	_SD_WaitForReady
+   020C AB 82              1147 	mov	r3,dpl
+   020E D0 02              1148 	pop	ar2
+                           1149 ;	genCmpEq
+                           1150 ;	gencjneshort
+                           1151 ;	Peephole 112.b	changed ljmp to sjmp
+                           1152 ;	Peephole 198.b	optimized misc jump sequence
+   0210 BB FF 06           1153 	cjne	r3,#0xFF,00109$
+                           1154 ;	Peephole 200.b	removed redundant sjmp
+                           1155 ;	Peephole 300	removed redundant label 00120$
+                           1156 ;	Peephole 300	removed redundant label 00121$
+                           1157 ;	FatDrivers/diskio.c:195: res = RES_OK;
+                           1158 ;	genAssign
+   0213 7A 00              1159 	mov	r2,#0x00
+                           1160 ;	FatDrivers/diskio.c:196: break;
+                           1161 ;	FatDrivers/diskio.c:198: default:
+                           1162 ;	Peephole 112.b	changed ljmp to sjmp
+   0215 80 02              1163 	sjmp	00109$
+   0217                    1164 00108$:
+                           1165 ;	FatDrivers/diskio.c:199: res = RES_PARERR;
+                           1166 ;	genAssign
+   0217 7A 04              1167 	mov	r2,#0x04
+                           1168 ;	FatDrivers/diskio.c:201: }
+   0219                    1169 00109$:
+                           1170 ;	FatDrivers/diskio.c:203: Disable_SD_Card();
+                           1171 ;	genAssign
+   0219 D2 91              1172 	setb	_P1_1
+                           1173 ;	FatDrivers/diskio.c:204: SPI_Byte( 0xFF );
+                           1174 ;	genCall
+   021B 75 82 FF           1175 	mov	dpl,#0xFF
+   021E C0 02              1176 	push	ar2
+   0220 12s00r00           1177 	lcall	_SPI_Byte
+   0223 D0 02              1178 	pop	ar2
+                           1179 ;	FatDrivers/diskio.c:205: return res;
+                           1180 ;	genRet
+   0225 8A 82              1181 	mov	dpl,r2
+   0227                    1182 00110$:
+   0227 D0*00              1183 	pop	_bp
+   0229 22                 1184 	ret
+                           1185 	.area CSEG    (CODE)
+                           1186 	.area CONST   (CODE)
+                           1187 	.area XINIT   (CODE)

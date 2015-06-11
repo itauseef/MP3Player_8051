@@ -1,0 +1,181 @@
+
+*******************************************************************************
+                                  MP3_Player
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g16v8as  Library DLIB-h-40-2
+Created         Mon Apr 27 10:28:03 2015
+Name            MP3_Player 
+Partno          00 
+Revision        00 
+Date            4/23/2015 
+Designer        Shukla_Indikar
+Company         UniversityOfColorado 
+Assembly        None 
+Location        ECEE1B28 
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+!CE =>
+    A15
+  # !A11 & !A12 & !A13 & !A14
+
+CP =>
+    !A15 & WR
+
+LCD_ENABLE =>
+    A12 & A13 & A14 & A15 & RD
+  # A12 & A13 & A14 & A15 & WR
+
+!READ =>
+    !PSEN & !RD
+
+!RST =>
+    !RESET
+
+XBeeRx =>
+    TXD & XBee_Enable
+
+XBeeTx =>
+    RXD & XBee_Enable
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    A11                         11       V        -       -       -     
+    A12                         5        V        -       -       -     
+    A13                         4        V        -       -       -     
+    A14                         3        V        -       -       -     
+    A15                         2        V        -       -       -     
+ !  CE                          16       V        2       8       1     
+    CP                          0        I        1       -       -     
+    LCD_ENABLE                  13       V        2       8       1     
+ !  PSEN                        6        V        -       -       -     
+ !  RD                          7        V        -       -       -     
+ !  READ                        14       V        1       8       1     
+    RESET                       19       V        -       -       -     
+ !  RST                         18       V        1       8       1     
+    RXD                         9        V        -       -       -     
+    TXD                         1        V        -       -       -     
+ !  WR                          8        V        -       -       -     
+    XBeeRx                      12       V        1       8       1     
+    XBeeTx                      15       V        1       8       1     
+    XBee_Enable                 17       V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+
+
+===============================================================================
+                                   Fuse Plot
+===============================================================================
+
+Syn   02192 - Ac0   02193 x 
+
+Pin #19  02048  Pol x  02120  Ac1 - 
+ 00000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00032 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00064 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00096 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00128 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00160 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00192 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00224 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #18  02049  Pol -  02121  Ac1 x 
+ 00256 -------x------------------------ 
+ 00288 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00352 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00384 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00416 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00448 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00480 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #17  02050  Pol x  02122  Ac1 - 
+ 00512 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00544 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00576 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00608 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00640 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00672 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00704 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00736 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #16  02051  Pol -  02123  Ac1 x 
+ 00768 x------------------------------- 
+ 00800 -----x---x---x-----------------x 
+ 00832 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00864 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00896 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00928 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00960 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00992 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #15  02052  Pol -  02124  Ac1 x 
+ 01024 --------------x-------------x--- 
+ 01056 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01088 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01120 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01152 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01184 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01216 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01248 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #14  02053  Pol -  02125  Ac1 x 
+ 01280 ----------------x---x----------- 
+ 01312 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01344 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01376 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01408 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01440 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01472 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01504 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #13  02054  Pol -  02126  Ac1 x 
+ 01536 x---x---x---x--------x---------- 
+ 01568 x---x---x---x------------x------ 
+ 01600 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01632 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01664 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01696 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01728 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01760 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #12  02055  Pol -  02127  Ac1 x 
+ 01792 --x-----------x----------------- 
+ 01824 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01856 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01888 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01920 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01952 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01984 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02016 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+
+LEGEND    X : fuse not blown 
+          - : fuse blown 
+
+===============================================================================
+                                 Chip Diagram
+===============================================================================
+
+                               ______________
+                              |  MP3_Player  |
+                      TXD x---|1           20|---x Vcc                      
+                      A15 x---|2           19|---x RESET                    
+                      A14 x---|3           18|---x !RST                     
+                      A13 x---|4           17|---x XBee_Enable              
+                      A12 x---|5           16|---x !CE                      
+                    !PSEN x---|6           15|---x XBeeTx                   
+                      !RD x---|7           14|---x !READ                    
+                      !WR x---|8           13|---x LCD_ENABLE               
+                      RXD x---|9           12|---x XBeeRx                   
+                      GND x---|10          11|---x A11                      
+                              |______________|
+

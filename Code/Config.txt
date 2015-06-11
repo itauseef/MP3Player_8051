@@ -1,0 +1,9 @@
+Compiler: SDCC 2.6.0 32 bit
+
+IDE: CodeBlocks 13.12
+
+Operating System: Windows 7 64 bit
+
+Compiler Flags: --stack-auto --verbose --opt-code-size -mmcs51 --out-fmt-ihx --std-sdcc99
+
+Linker Flags: --code-loc 0x0000 --code-size 0x8000 --xram-loc 0x0000 --xram-size 0x8000 --out-fmt-ihx --stack-auto --model-small --use-stdout

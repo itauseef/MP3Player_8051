@@ -1,0 +1,199 @@
+{COMPONENT C:\DOCUMENTS AND SETTINGS\TAIN5575\MY DOCUMENTS\DOWNLOADS\MP3 PLAYER (1).SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Mon Apr 27 10:28:03 2015 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P TXD {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P A15 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P A14 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P A13 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P A12 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P PSEN' {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P RD' {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P WR' {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P RXD {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P A11 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P XBEE_ENA {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P RESET {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P XBEERX {Pt "I/O"}{Lq 0}{Ploc 360 20}}
+   {P LCD_ENAB {Pt "I/O"}{Lq 0}{Ploc 360 40}}
+   {P READ' {Pt "I/O"}{Lq 0}{Ploc 360 60}}
+   {P XBEETX {Pt "I/O"}{Lq 0}{Ploc 360 80}}
+   {P CE' {Pt "I/O"}{Lq 0}{Ploc 360 100}}
+   {P RST' {Pt "I/O"}{Lq 0}{Ploc 360 120}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 230 270}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 340 30}
+   {Pnl 340 50}
+   {Pnl 340 70}
+   {Pnl 340 90}
+   {Pnl 340 110}
+   {Pnl 340 130}
+
+   {Sd A 1 2 3 4 5 6 7 8 9 11 17 19 12 13 14 15 16 18}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 260 330 0}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 120 140 100 140}
+   {C 125 140 5}
+   {L 120 120 100 120}
+   {C 125 120 5}
+   {L 120 100 100 100}
+   {C 125 100 5}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 330 20 360 20}
+   {L 330 40 360 40}
+   {C 335 60 5}
+   {L 340 60 360 60}
+   {L 330 80 360 80}
+   {C 335 100 5}
+   {L 340 100 360 100}
+   {C 335 120 5}
+   {L 340 120 360 120}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "TXD" 140 240}
+   {T "A15" 140 220}
+   {T "A14" 140 200}
+   {T "A13" 140 180}
+   {T "A12" 140 160}
+   {T "PSEN'" 140 140}
+   {T "RD'" 140 120}
+   {T "WR'" 140 100}
+   {T "RXD" 140 80}
+   {T "A11" 140 60}
+   {T "XBEE_ENA" 140 40}
+   {T "RESET" 140 20}
+   [Tj "RC"]
+   {T "XBEERX" 320 20}
+   {T "LCD_ENAB" 320 40}
+   {T "READ'" 320 60}
+   {T "XBEETX" 320 80}
+   {T "CE'" 320 100}
+   {T "RST'" 320 120}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G16V8AS" 230 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD C:\DOCUMENTS AND SETTINGS\TAIN5575\MY DOCUMENTS\DOWNLOADS\MP3 PLAYER (1) 230 260}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N TXD
+   }
+   {N A15
+   }
+   {N A14
+   }
+   {N A13
+   }
+   {N A12
+   }
+   {N PSEN'
+   }
+   {N RD'
+   }
+   {N WR'
+   }
+   {N RXD
+   }
+   {N A11
+   }
+   {N XBEE_ENA
+   }
+   {N RESET
+   }
+   {N XBEERX
+   }
+   {N LCD_ENAB
+   }
+   {N READ'
+   }
+   {N XBEETX
+   }
+   {N CE'
+   }
+   {N RST'
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

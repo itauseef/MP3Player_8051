@@ -1,0 +1,49 @@
+%SIGNAL
+PIN  11 =  A11 
+PIN   5 =  A12 
+PIN   4 =  A13 
+PIN   3 =  A14 
+PIN   2 =  A15 
+PIN  16 = !CE 
+PIN  13 =  LCD_ENABLE 
+PIN   6 = !PSEN 
+PIN   7 = !RD 
+PIN  14 = !READ 
+PIN  19 =  RESET 
+PIN  18 = !RST 
+PIN   9 =  RXD 
+PIN   1 =  TXD 
+PIN   8 = !WR 
+PIN  12 =  XBeeRx 
+PIN  15 =  XBeeTx 
+PIN  17 =  XBee_Enable 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+!CE =>
+    A15
+  # !A11 & !A12 & !A13 & !A14
+
+CP =>
+    !A15 & WR
+
+LCD_ENABLE =>
+    A12 & A13 & A14 & A15 & !RD
+  # A12 & A13 & A14 & A15 & !WR
+
+!READ =>
+    PSEN & RD
+
+!RST =>
+    !RESET
+
+XBeeRx =>
+    TXD & XBee_Enable
+
+XBeeTx =>
+    RXD & XBee_Enable
+
+%END
